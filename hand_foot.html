@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hand and Foot Scoreboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="hand_foot.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="hand_foot.js"></script>
+  </head>
+  <body>
+
+    <header class="textCenter" style="background-color:#111;">
+      <h4 style="padding:20px; margin-bottom:0; color:#eee;">Hand and Foot Scorecard</h4>
+      <div class="btn primaryColor" onclick="gameController()" style="margin-bottom:20px;">
+        Start New Game
+      </div>
+    </header>
+
+    <main class="contentContainer">
+      <div class="teamSideBar">
+        <h4 style="text-align:center; margin:20px 0px;">Teams</h4>
+        <ul id="teamsList"></ul>
+        <div class="textCenter" style="margin-top:20px;">
+          <button type="button" class="btn primaryColor w-50" onclick="openTeamModal()">Add Team</button>
+        </div>
+      </div>
+
+      <div class="scoringSection">
+        <div class="textCenter h4" style="margin:20px 0px; position:relative;">
+          <span>Round </span>
+          <span id="roundCounter">1</span>
+          <div class="endRoundButton">
+            <button class="btn primaryColor" type="button" onclick="endRound()">End Round</button>
+          </div>
+        </div>
+        <h3 class="teamNameTurn textCenter"></h3>
+        <div class="cardSection textCenter">
+
+          <div class="thirdCards" style="border-right:3px solid #f2f2f2;">
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">2</span>
+                <div class="imgContainer">
+                  <img src="img/2C.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">4</span>
+                <div class="imgContainer">
+                  <img src="img/4D.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">5</span>
+                <div class="imgContainer">
+                  <img src="img/5S.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">6</span>
+                <div class="imgContainer">
+                  <img src="img/6H.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">7</span>
+                <div class="imgContainer">
+                  <img src="img/7C.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="thirdCards" style="border-right:3px solid #f2f2f2">
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">8</span>
+                <div class="imgContainer">
+                  <img src="img/8D.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">9</span>
+                <div class="imgContainer">
+                  <img src="img/9S.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">10</span>
+                <div class="imgContainer">
+                  <img src="img/10H.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">J</span>
+                <div class="imgContainer">
+                  <img src="img/JC.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">Q</span>
+                <div class="imgContainer">
+                  <img src="img/QD.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="thirdCards">
+            <div class="cardCount">
+              <div class=""><span class="cardValue">K</span>
+                <div class="imgContainer">
+                  <img src="img/KS.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">A</span>
+                <div class="imgContainer">
+                  <img src="img/AH.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+
+            <div class="cardCount">
+              <div class=""><span class="cardValue">Joker</span>
+                <div class="imgContainer">
+                  <img src="img/joker.jpg" alt="2">
+                </div>
+              </div>
+              <div class="counterContainer">
+                <span class="neg" onclick="negCount(this)">-</span>
+                <span class="count">0</span>
+                <span class="plus" onclick="plusCount(this)">+</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="textCenter py-3" style="font-size:30px;">
+          <span>Points This Turn: </span><span id="turnCount">0</span>
+        </div>
+        <div class="textCenter py-3">
+          <button class="btn primaryColor" type="button" onclick="endCurrentTurn()">End Turn</button>
+        </div>
+      </div>
+
+    </main>
+
+    <div class="modals">
+      <div id="addTeamsModal" class="modal_container">
+        <div class="modal_content">
+          <div class="modal_header">
+            <div class="">
+              <span class="modal_close" onclick="closeModal(this)">&times;</span>
+              <h3>Teams</h3>
+            </div>
+            <div class="modal_body">
+              <div class="my-3 mx-auto w-75" style="display:grid; grid-template-columns:75% 25%;">
+                <input type="text" name="" value="" style="border:1px solid black;">
+                <button class="btn primaryColor" type="button" onclick="addTeam(this)">Add Team</button>
+              </div>
+              <ul id="modalTeamsList" class="w-75 mx-auto"></ul>
+            </div>
+            <button class="btn primaryColor" type="button" name="button" onclick="closeModal(this)" style="margin-top:20px; width:125px;">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="bookCountModal" class="modal_container">
+        <div class="modal_content">
+          <div class="modal_header">
+            <div class="">
+              <span class="modal_close" onclick="closeModal(this)">&times;</span>
+              <h3>Book Count</h3>
+            </div>
+            <div class="modal_body">
+              <div class="bookTeam w-75 mx-auto">
+                <div class="">Team</div>
+                <div class="">Pure</div>
+                <div class="">Impure</div>
+              </div>
+              <ul id="bookTeamsList" class="w-75 mx-auto"></ul>
+            </div>
+            <button class="btn primaryColor" type="button" name="button" id="bookCountModalBtn" style="margin-top:20px; width:125px;">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="newGameModal" class="modal_container">
+        <div class="modal_content">
+          <div class="modal_header">
+            <div class="">
+              <span class="modal_close">&times;</span>
+              <h6>New Games</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
